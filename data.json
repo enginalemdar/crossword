@@ -2,261 +2,135 @@
   "boyut": 16,
   "bulmacaAdi": "16x16 Finansal Terimler Bulmacası",
   "kelimeler": [
+  
     {
       "id": 1,
       "yon": "yatay",
-      "soru": "Para arzının artmasıyla fiyatların genel düzeyindeki sürekli artış.",
+      "soru": "Para arzının artmasıyla fiyatların genel düzeyindeki sürekli artış. (ENFLASYON)",
       "cevap": "ENFLASYON",
-      "baslangic_x": 1,
-      "baslangic_y": 1
+      "baslangic_x": 4, 
+      "baslangic_y": 4
     },
     {
       "id": 2,
       "yon": "yatay",
-      "soru": "Belirli bir dönemdeki gelir ve giderlerin tahmini planı.",
+      "soru": "Belirli bir dönemdeki gelir ve giderlerin tahmini planı. (BÜTÇE)",
       "cevap": "BÜTÇE",
-      "baslangic_x": 4,
-      "baslangic_y": 3
+      "baslangic_x": 8, 
+      "baslangic_y": 6
     },
     {
       "id": 3,
       "yon": "yatay",
-      "soru": "Bir şirketin kârından ortaklarına dağıttığı pay.",
+      "soru": "Bir şirketin kârından ortaklarına dağıttığı pay. (TEMETTÜ)",
       "cevap": "TEMETTÜ",
-      "baslangic_x": 5,
-      "baslangic_y": 5
+      "baslangic_x": 5, 
+      "baslangic_y": 8
     },
     {
       "id": 4,
       "yon": "yatay",
-      "soru": "Geri ödeme vaadiyle alınan borç para.",
+      "soru": "Geri ödeme vaadiyle alınan borç para. (KREDİ)",
       "cevap": "KREDİ",
-      "baslangic_x": 7,
-      "baslangic_y": 7
+      "baslangic_x": 6, 
+      "baslangic_y": 10
     },
     {
       "id": 5,
       "yon": "yatay",
-      "soru": "Gayrimenkulün bir borca karşılık rehin verilmesi.",
+      "soru": "Gayrimenkulün bir borca karşılık rehin verilmesi. (İPOTEK)",
       "cevap": "İPOTEK",
-      "baslangic_x": 9,
-      "baslangic_y": 9
+      "baslangic_x": 4, 
+      "baslangic_y": 12
     },
     {
       "id": 6,
       "yon": "yatay",
-      "soru": "Yüksek riskli yatırımlar için talep edilen ek getiri.",
+      "soru": "Yüksek riskli yatırımlar için talep edilen ek getiri. (RİSKPRİM)",
       "cevap": "RİSKPRİM",
-      "baslangic_x": 1,
-      "baslangic_y": 11
+      "baslangic_x": 4, 
+      "baslangic_y": 14
     },
     {
       "id": 7,
       "yon": "yatay",
-      "soru": "Bir borcun veya alacağın ödenmesi gereken süre sonu.",
-      "cevap": "VADE",
-      "baslangic_x": 13,
-      "baslangic_y": 13
+      "soru": "Paranın kirası veya kullanım bedeli. (FAİZ)",
+      "cevap": "FAİZ",
+      "baslangic_x": 9,
+      "baslangic_y": 16
     },
     {
       "id": 8,
       "yon": "yatay",
-      "soru": "Varlıkların kolayca nakde çevrilebilme yeteneği.",
+      "soru": "Varlıkların kolayca nakde çevrilebilme yeteneği. (LİKİDİTE)",
       "cevap": "LİKİDİTE",
-      "baslangic_x": 8,
-      "baslangic_y": 15
+      "baslangic_x": 9,
+      "baslangic_y": 2
     },
+    
     {
       "id": 9,
-      "yon": "yatay",
-      "soru": "Devlet veya şirketlerin çıkardığı, bir yıldan kısa vadeli borçlanma senedi.",
-      "cevap": "BONO",
-      "baslangic_x": 2,
-      "baslangic_y": 16
+      "yon": "dikey",
+      "soru": "Piyasadaki miktar ve bu miktara olan istek arasındaki ilişki. (ARZTALEP)",
+      "cevap": "ARZTALEP",
+      "baslangic_x": 4,
+      "baslangic_y": 4
     },
     {
       "id": 10,
-      "yon": "yatay",
-      "soru": "Hukuki hak ve yükümlülükleri belirleyen iki taraflı anlaşma.",
-      "cevap": "SÖZLEŞME",
-      "baslangic_x": 1,
-      "baslangic_y": 14
+      "yon": "dikey",
+      "soru": "Devletin kamu harcamalarını karşılamak için bireylerden zorla aldığı pay. (VERGİ)",
+      "cevap": "VERGİ",
+      "baslangic_x": 6,
+      "baslangic_y": 6
     },
     {
       "id": 11,
-      "yon": "yatay",
-      "soru": "Devlet tahvili veya bonosunun geri alma vaadiyle satılması işlemi.",
-      "cevap": "REPO",
-      "baslangic_x": 10,
-      "baslangic_y": 12
+      "yon": "dikey",
+      "soru": "Bir anonim şirketin sermayesine ortaklığı temsil eden pay senedi. (HİSSE)",
+      "cevap": "HİSSE",
+      "baslangic_x": 8,
+      "baslangic_y": 4
     },
     {
       "id": 12,
-      "yon": "yatay",
-      "soru": "Sabit kur sisteminde ulusal paranın yabancı paralar karşısında değerinin düşürülmesi.",
-      "cevap": "DEVALÜASYON",
-      "baslangic_x": 3,
-      "baslangic_y": 10
+      "yon": "dikey",
+      "soru": "Bir yatırımcının elindeki çeşitli varlıkların bütünü. (PORTFÖY)",
+      "cevap": "PORTFÖY",
+      "baslangic_x": 10,
+      "baslangic_y": 6
     },
     {
       "id": 13,
-      "yon": "yatay",
-      "soru": "Paranın kirası veya kullanım bedeli.",
-      "cevap": "FAİZ",
-      "baslangic_x": 10,
-      "baslangic_y": 8
+      "yon": "dikey",
+      "soru": "Borçla öz kaynak getirisini artırma tekniği. (KALDIRAÇ)",
+      "cevap": "KALDIRAÇ",
+      "baslangic_x": 12,
+      "baslangic_y": 4
     },
     {
       "id": 14,
-      "yon": "yatay",
-      "soru": "Belirlenen risklere karşı güvence sağlayan finansal ürün.",
-      "cevap": "SİGORTA",
-      "baslangic_x": 1,
+      "yon": "dikey",
+      "soru": "Gelirlerin giderleri karşılayamama durumu. (ZARAR)",
+      "cevap": "ZARAR",
+      "baslangic_x": 14,
       "baslangic_y": 6
     },
     {
       "id": 15,
-      "yon": "yatay",
-      "soru": "Sahibine, dayanak varlığı belli bir fiyattan alma veya satma hakkı veren menkul kıymet.",
-      "cevap": "VARANT",
-      "baslangic_x": 10,
+      "yon": "dikey",
+      "soru": "Yabancı ülkelerin para birimleri. (DÖVİZ)",
+      "cevap": "DÖVİZ",
+      "baslangic_x": 16,
       "baslangic_y": 4
     },
     {
       "id": 16,
-      "yon": "yatay",
-      "soru": "Merkez Bankası'nın ticari senetleri iskonto ettiği faiz oranı.",
-      "cevap": "REESKONT",
-      "baslangic_x": 11,
-      "baslangic_y": 2
-    },
-    {
-      "id": 17,
       "yon": "dikey",
-      "soru": "Piyasadaki miktar ve bu miktara olan istek arasındaki ilişki.",
-      "cevap": "ARZTALEP",
-      "baslangic_x": 1,
-      "baslangic_y": 1
-    },
-    {
-      "id": 18,
-      "yon": "dikey",
-      "soru": "Devletin kamu harcamalarını karşılamak için bireylerden zorla aldığı pay.",
-      "cevap": "VERGİ",
-      "baslangic_x": 4,
-      "baslangic_y": 3
-    },
-    {
-      "id": 19,
-      "yon": "dikey",
-      "soru": "Bir anonim şirketin sermayesine ortaklığı temsil eden pay senedi.",
-      "cevap": "HİSSE",
-      "baslangic_x": 7,
-      "baslangic_y": 5
-    },
-    {
-      "id": 20,
-      "yon": "dikey",
-      "soru": "Bir yatırımcının elindeki çeşitli varlıkların bütünü.",
-      "cevap": "PORTFÖY",
-      "baslangic_x": 9,
-      "baslangic_y": 7
-    },
-    {
-      "id": 21,
-      "yon": "dikey",
-      "soru": "Borçla öz kaynak getirisini artırma tekniği.",
-      "cevap": "KALDIRAÇ",
-      "baslangic_x": 11,
-      "baslangic_y": 9
-    },
-    {
-      "id": 22,
-      "yon": "dikey",
-      "soru": "Gelirlerin giderleri karşılayamama durumu.",
-      "cevap": "ZARAR",
-      "baslangic_x": 13,
-      "baslangic_y": 11
-    },
-    {
-      "id": 23,
-      "yon": "dikey",
-      "soru": "Yabancı ülkelerin para birimleri.",
-      "cevap": "DÖVİZ",
-      "baslangic_x": 15,
-      "baslangic_y": 13
-    },
-    {
-      "id": 24,
-      "yon": "dikey",
-      "soru": "Bir alacağın ödenmesinin sağlanması veya toplanması.",
-      "cevap": "TAHSİL",
-      "baslangic_x": 16,
-      "baslangic_y": 1
-    },
-    {
-      "id": 25,
-      "yon": "dikey",
-      "soru": "İşletmenin elindeki nakit parayı ifade eden hesap.",
-      "cevap": "KASA",
-      "baslangic_x": 16,
-      "baslangic_y": 12
-    },
-    {
-      "id": 26,
-      "yon": "dikey",
-      "soru": "Şirketlerin veya devletlerin bir yıldan uzun vadeli borçlanma senedi.",
-      "cevap": "TAHVİL",
-      "baslangic_x": 14,
-      "baslangic_y": 1
-    },
-    {
-      "id": 27,
-      "yon": "dikey",
-      "soru": "Gelir elde etmek amacıyla sermayenin varlıklara dönüştürülmesi.",
-      "cevap": "YATIRIM",
-      "baslangic_x": 12,
-      "baslangic_y": 1
-    },
-    {
-      "id": 28,
-      "yon": "dikey",
-      "soru": "İşletmenin sahip olduğu para ve varlıkların toplam değeri.",
+      "soru": "İşletmenin sahip olduğu para ve varlıkların toplam değeri. (SERMAYE)",
       "cevap": "SERMAYE",
-      "baslangic_x": 10,
-      "baslangic_y": 1
-    },
-    {
-      "id": 29,
-      "yon": "dikey",
-      "soru": "İki farklı para biriminin değişim oranı.",
-      "cevap": "KUR",
-      "baslangic_x": 8,
-      "baslangic_y": 1
-    },
-    {
-      "id": 30,
-      "yon": "dikey",
-      "soru": "Bir varlığın kullanımı karşılığında yapılan düzenli ödeme.",
-      "cevap": "KİRAÖDEME",
-      "baslangic_x": 6,
-      "baslangic_y": 1
-    },
-    {
-      "id": 31,
-      "yon": "dikey",
-      "soru": "Para ve kredi işlemleriyle uğraşan finans kurumu.",
-      "cevap": "BANKA",
-      "baslangic_x": 4,
-      "baslangic_y": 1
-    },
-    {
-      "id": 32,
-      "yon": "dikey",
-      "soru": "Ülke ekonomisinin tamamını inceleyen iktisat dalı.",
-      "cevap": "MAKRO",
-      "baslangic_x": 2,
-      "baslangic_y": 1
+      "baslangic_x": 9,
+      "baslangic_y": 8
     }
   ]
 }
