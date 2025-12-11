@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Üstten başlasın */
+    padding: 20px;
+    background-color: #f4f4f9;
+}
+
+.puzzle-container {
+    display: flex;
+    gap: 30px;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.crossword-grid {
+    display: grid;
+    /* JS ile dinamik olarak column/row tanımlanacak */
+    border: 2px solid #333;
+    background-color: #fff;
+}
+
+.cell {
+    width: 35px;
+    height: 35px;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #fff;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.cell input {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+}
+
+.black-cell {
+    background-color: #333;
+    border: 1px solid #333;
+    pointer-events: none; /* Tıklanabilirliği kapat */
+}
+
+.clue-number {
+    position: absolute;
+    top: 1px;
+    left: 2px;
+    font-size: 8px;
+    color: #333;
+    font-weight: normal;
+}
+
+.clues-container {
+    flex-grow: 1;
+}
+
+.clues-container h2 {
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+    margin-top: 15px;
+}
+.clues-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+.clues-container li {
+    margin-bottom: 5px;
+}
