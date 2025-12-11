@@ -1,0 +1,47 @@
+{
+  "boyut": 10,
+  "bulmacaAdi": "HABER TÜRK Çengel Bulmaca",
+  "kelimeler": [
+    {
+      "id": 1,
+      "yon": "yatay",
+      "soru": "Bilgiyi temsil eden ham veri (Yurtdaş/Bilgilerde Yazar - 1)",
+      "cevap": "DATA",
+      "baslangic_x": 1,
+      "baslangic_y": 3
+    },
+    {
+      "id": 2,
+      "yon": "dikey",
+      "soru": "Resimdeki oyuncu (1)",
+      "cevap": "DATTAN",
+      "baslangic_x": 1,
+      "baslangic_y": 3
+    },
+    {
+      "id": 3,
+      "yon": "yatay",
+      "soru": "Çabuk olan (Yurtdaş/Bilgilerde Yazar - 2)",
+      "cevap": "CABUK",
+      "baslangic_x": 2,
+      "baslangic_y": 5
+    },
+    {
+      "id": 4,
+      "yon": "dikey",
+      "soru": "Kadımyum simgesi (2)",
+      "cevap": "CDA",
+      "baslangic_x": 5,
+      "baslangic_y": 7
+    },
+    {
+      "id": 5,
+      "yon": "yatay",
+      "soru": "Yabancı (3)",
+      "cevap": "YABANCI",
+      "baslangic_x": 5,
+      "baslangic_y": 1
+    }
+    // ... Tüm kelimeleri buraya eklememiz gerekecek
+  ]
+}
