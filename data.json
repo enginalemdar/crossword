@@ -2,7 +2,6 @@
   "boyut": 16,
   "bulmacaAdi": "16x16 Finansal Terimler Bulmacası",
   "kelimeler": [
-  
     {
       "id": 1,
       "yon": "yatay",
@@ -67,7 +66,6 @@
       "baslangic_x": 9,
       "baslangic_y": 2
     },
-    
     {
       "id": 9,
       "yon": "dikey",
