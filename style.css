@@ -11,19 +11,21 @@ body {
     display: flex;
     gap: 30px;
     width: 90%;
-    max-width: 1200px;
+    max-width: 1000px; /* Sabit bir maksimum genişlik */
 }
 
 .crossword-grid {
-    display: grid;
-    /* JS ile dinamik olarak column/row tanımlanacak */
+    /* Burası 16x16 için 35px yeterli, ancak daha küçük de deneyebiliriz */
     border: 2px solid #333;
     background-color: #fff;
+    /* Grid boyutunu sabitleyelim ki kaymasın */
+    width: 600px; 
+    height: 600px;
 }
 
 .cell {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     border: 1px solid #ccc;
     display: flex;
     justify-content: center;
