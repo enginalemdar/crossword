@@ -1,44 +1,39 @@
-// data.json içeriğini doğrudan global bir değişkene atayacağız (basitlik için)
-// Normalde bu bir fetch isteği ile yapılmalıdır.
-
-// Varsayım: JSON içeriği data değişkeninde mevcut (index.html'deki script src ile)
-const data = {
-    // data.json içeriği burada olmalı
-    "boyut": 10,
-    "kelimeler": [
-        // ... kelime objeleri
-    ]
-}; 
-
 const gridElement = document.getElementById('crossword-grid');
-const boyut = data.boyut;
 
 // 1. Izgarayı Oluşturma
-function createGrid() {
+function createGrid(data) {
+    const boyut = data.boyut;
     gridElement.style.gridTemplateColumns = `repeat(${boyut}, 1fr)`;
     gridElement.style.gridTemplateRows = `repeat(${boyut}, 1fr)`;
 
     // Harita oluşturma (boş hücreler ve kelime ID'leri)
+    // Harita indeksleri 0'dan başlar (0, 0'dan 9, 9'a)
     const gridMap = Array(boyut).fill(0).map(() => Array(boyut).fill({ type: 'empty' }));
 
     // Kelimeleri haritaya yerleştirme
     data.kelimeler.forEach(word => {
-        let x = word.baslangic_x - 1;
-        let y = word.baslangic_y - 1;
+        // x ve y koordinatları 1'den başladığı için 1 çıkarıyoruz
+        let x_start = word.baslangic_x - 1;
+        let y_start = word.baslangic_y - 1;
 
         for (let i = 0; i < word.cevap.length; i++) {
-            const index = word.yon === 'yatay' ? x + i : y + i;
-            const coordX = word.yon === 'yatay' ? index : x;
-            const coordY = word.yon === 'yatay' ? y : index;
+            let coordX = word.yon === 'yatay' ? x_start + i : x_start;
+            let coordY = word.yon === 'yatay' ? y_start : y_start + i;
 
-            // Hücre objesini güncelle
-            gridMap[coordY][coordX] = {
-                type: 'letter',
-                kelimeID: word.id,
-                harfIndex: i,
-                soruNo: i === 0 ? word.id : null,
-                dogruHarf: word.cevap[i]
-            };
+            // Koordinatların sınırları aşmadığından emin olun (Hata kontrolü)
+            if (coordX < boyut && coordY < boyut) {
+                // Eğer hücre zaten tanımlıysa, mevcut kelime ID'lerini birleştirin
+                const existingData = gridMap[coordY][coordX];
+                
+                gridMap[coordY][coordX] = {
+                    type: 'letter',
+                    // Birden fazla kelime kesişirse, ID'leri bir array içinde tutabiliriz.
+                    kelimeIDs: existingData.kelimeIDs ? [...existingData.kelimeIDs, word.id] : [word.id],
+                    harfIndex: i,
+                    soruNo: i === 0 ? word.id : null,
+                    dogruHarf: word.cevap[i]
+                };
+            }
         }
     });
 
@@ -52,13 +47,13 @@ function createGrid() {
             cell.dataset.y = y;
 
             if (cellData.type === 'empty') {
-                // Bulmacada hiç kullanılmayan boş hücreleri siyah yap (Çengel Bulmaca standardı)
+                // Kullanılmayan hücreleri siyah yap
                 cell.classList.add('black-cell');
             } else {
                 const input = document.createElement('input');
                 input.maxLength = 1;
-                input.dataset.wordId = cellData.kelimeID;
-                input.dataset.charIndex = cellData.harfIndex;
+                // Kesişen hücrelerde tüm kelime ID'lerini tutarız
+                input.dataset.wordIds = cellData.kelimeIDs.join(','); 
                 input.dataset.x = x;
                 input.dataset.y = y;
                 
@@ -78,21 +73,38 @@ function createGrid() {
 }
 
 // 2. Etkileşim ve Otomatik İlerleme
-function setupInteraction() {
+function setupInteraction(data) {
+    // Bulmacanın o an odaklanılan yönünü tutar (yatay/dikey)
+    let currentDirection = 'yatay'; 
+
+    gridElement.addEventListener('click', (e) => {
+        // Tıklanan hücre input ise yönü değiştir
+        if (e.target.tagName === 'INPUT') {
+            currentDirection = currentDirection === 'yatay' ? 'dikey' : 'yatay';
+            e.target.focus();
+        }
+    });
+
     gridElement.addEventListener('input', (e) => {
         const input = e.target;
-        if (input.tagName !== 'INPUT') return;
+        if (input.tagName !== 'INPUT' || input.value.length === 0) return;
 
-        const { wordId, charIndex, x, y } = input.dataset;
-        const currentWord = data.kelimeler.find(w => w.id === parseInt(wordId));
+        const { x, y, wordIds } = input.dataset;
+        const xNum = parseInt(x);
+        const yNum = parseInt(y);
         
-        if (!currentWord) return;
+        // Bu hücrenin ait olduğu kelimeleri bul
+        const relevantWords = data.kelimeler.filter(w => wordIds.split(',').includes(w.id.toString()));
+        
+        // Otomatik İlerleme için öncelikli kelimeyi (currentDirection ile uyumlu olanı) bul
+        const primaryWord = relevantWords.find(w => w.yon === currentDirection) || relevantWords[0];
+        
+        if (!primaryWord) return;
 
-        // Otomatik İlerleme Mantığı
-        let nextX = parseInt(x);
-        let nextY = parseInt(y);
+        let nextX = xNum;
+        let nextY = yNum;
 
-        if (currentWord.yon === 'yatay') {
+        if (primaryWord.yon === 'yatay') {
             nextX += 1; // Sağa ilerle
         } else {
             nextY += 1; // Aşağı ilerle
@@ -104,18 +116,20 @@ function setupInteraction() {
         if (nextCell) {
             nextCell.focus();
         } 
-        // OPTIONAL: Kelime bittiğinde kontrol edilebilir veya başka bir kelimenin ilk hücresine odaklanılabilir.
+        
+        // TODO: Tüm kelime doğruysa hücre rengini yeşil yapma mantığı eklenebilir.
     });
-
-    // OPTIONAL: Ok tuşları ile gezme ve tıklamada kelime yönünü belirleme eklenebilir.
 }
 
 // 3. Soruları Listeleme
-function listClues() {
+function listClues(data) {
     const yatayList = document.getElementById('yatay-sorular');
     const dikeyList = document.getElementById('dikey-sorular');
 
-    data.kelimeler.forEach(word => {
+    // Soruları ID'ye göre sırala
+    const sortedKelimeler = data.kelimeler.sort((a, b) => a.id - b.id);
+    
+    sortedKelimeler.forEach(word => {
         const listItem = document.createElement('li');
         listItem.innerHTML = `<strong>${word.id}.</strong> ${word.soru}`;
         
@@ -127,14 +141,29 @@ function listClues() {
     });
 }
 
-
-// Uygulamayı Başlatma
-window.onload = () => {
-    // NOT: data.json dosyasının doğru yüklenmesi için 
-    // yerel çalıştırma veya basit bir sunucu kullanmak gerekebilir.
-    // Şimdilik varsayarak devam ediyoruz.
+// 4. Uygulamayı Başlatma (Veriyi Çekme)
+async function init() {
+    let data;
+    try {
+        // Railway URL'sinde data.json dosyasını çekmeye çalış
+        const response = await fetch('data.json');
+        if (!response.ok) {
+            throw new Error(`HTTP Hata: ${response.status} - data.json yüklenemedi.`);
+        }
+        data = await response.json();
+    } catch (error) {
+        console.error("Bulmaca verisi yüklenirken hata oluştu:", error);
+        // Kullanıcıya bilgi ver
+        gridElement.innerHTML = '<p style="color: red;">Bulmaca verisi yüklenirken sorun oluştu. Konsolu kontrol edin.</p>';
+        return; 
+    }
     
-    createGrid();
-    listClues();
-    setupInteraction();
-};
+    // Veri yüklendikten sonraki adımlar
+    createGrid(data);
+    listClues(data);
+    setupInteraction(data);
+}
+
+
+// Uygulamayı Başlat
+window.onload = init;
