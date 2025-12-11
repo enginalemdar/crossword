@@ -1,41 +1,69 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', sans-serif; /* Daha modern bir font */
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Üstten başlasın */
+    align-items: flex-start;
     padding: 20px;
-    background-color: #f4f4f9;
+    background-color: #f0f2f5; /* Açık gri arka plan */
+    min-height: 100vh;
 }
 
 .puzzle-container {
     display: flex;
+    flex-direction: column; /* Mobil uyumluluk için alt alta */
     gap: 30px;
-    width: 90%;
-    max-width: 1000px; /* Sabit bir maksimum genişlik */
+    width: 95%;
+    max-width: 1200px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 1024px) {
+    .puzzle-container {
+        flex-direction: row; /* Masaüstünde yan yana */
+    }
+}
+
+h1 {
+    color: #1a202c;
+    border-bottom: 2px solid #4a5568;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 28px;
 }
 
 .crossword-grid {
-    /* Burası 16x16 için 35px yeterli, ancak daha küçük de deneyebiliriz */
-    border: 2px solid #333;
+    display: grid;
+    flex-shrink: 0; /* Küçülmesini engelle */
+    border: 3px solid #1a202c;
     background-color: #fff;
-    /* Grid boyutunu sabitleyelim ki kaymasın */
-    width: 600px; 
-    height: 600px;
+    width: 500px; /* Sabit genişlik */
+    height: 500px; /* Sabit yükseklik */
+}
+
+/* Mobil cihazlar için ızgarayı küçültme */
+@media (max-width: 600px) {
+    .crossword-grid {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1; /* Kare oranını koru */
+    }
 }
 
 .cell {
-    width: 30px;
-    height: 30px;
-    border: 1px solid #ccc;
+    border: 1px solid #a0aec0; /* Açık gri sınır */
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
     background-color: #fff;
     position: relative;
     box-sizing: border-box;
+    padding: 0;
+    transition: background-color 0.2s;
 }
 
 .cell input {
@@ -45,8 +73,7 @@ body {
     border: none;
     padding: 0;
     margin: 0;
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 18px;
     text-transform: uppercase;
     background-color: transparent;
     outline: none;
@@ -54,33 +81,53 @@ body {
 }
 
 .black-cell {
-    background-color: #333;
-    border: 1px solid #333;
-    pointer-events: none; /* Tıklanabilirliği kapat */
+    background-color: #1a202c; /* Koyu gri/siyah bloklar */
+    border: 1px solid #1a202c;
+    pointer-events: none;
 }
 
 .clue-number {
     position: absolute;
     top: 1px;
     left: 2px;
-    font-size: 8px;
-    color: #333;
+    font-size: 9px;
+    color: #4a5568;
     font-weight: normal;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 0 2px;
+    border-radius: 2px;
 }
 
 .clues-container {
     flex-grow: 1;
+    min-width: 300px;
 }
 
 .clues-container h2 {
-    border-bottom: 2px solid #333;
+    color: #2d3748;
+    border-bottom: 2px solid #e2e8f0;
     padding-bottom: 5px;
     margin-top: 15px;
+    font-size: 20px;
 }
 .clues-container ul {
     list-style-type: none;
     padding: 0;
 }
 .clues-container li {
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.1s;
+}
+
+.clues-container li:hover {
+    background-color: #f7fafc;
+}
+
+/* Odaklama Stili */
+.focused-cell {
+    background-color: #feebc8; /* Açık sarı odak rengi */
 }
